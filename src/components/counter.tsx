@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 
 // 非同期データ取得関数
 const fetchData = async (): Promise<void> => {
@@ -24,7 +24,9 @@ export function Counter() {
   }, 0);
 
   const handleClick = () => {
-    runAction({ type: "INCREMENT" });
+    startTransition(() => {
+      runAction({ type: "INCREMENT" });
+    });
   };
 
   return (
