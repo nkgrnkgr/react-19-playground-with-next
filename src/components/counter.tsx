@@ -24,6 +24,7 @@ export function Counter() {
   }, 0);
 
   const handleClick = () => {
+    // https://zenn.dev/astrskcojp/articles/a515f27b7771ad
     startTransition(() => {
       runAction({ type: "INCREMENT" });
     });
