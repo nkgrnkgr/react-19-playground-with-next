@@ -1,18 +1,18 @@
 "use client";
 
-import { useActionState } from "react";
 import { increment } from "./action";
 
+// next.jsのサーバーアクションを確認してみましょう
+// useActionStateを使ってcountを表示してみましょう
 export function From() {
-  const [count, runIncrement, isPending] = useActionState(increment, 0);
   return (
-    <form action={runIncrement}>
+    <form action={increment}>
       <label>
         Name:
         <input type="text" name="name" />
       </label>
-      <input disabled={isPending} type="submit" value="Submit" />
-      <p>{count}</p>
+      <input type="submit" value="Submit" />
+      {/* <p>{count}</p> */}
     </form>
   );
 }

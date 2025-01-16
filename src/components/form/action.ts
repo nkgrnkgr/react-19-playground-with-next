@@ -1,11 +1,11 @@
 "use server";
 
-let count = 0;
-export async function increment() {
+// formDataにアクセスしてデータが取得されることを確認してみましょう
+// console.logを出してどこにlogが出力されるか確認しましょう
+// countをサーバーで管理して見ましょう（in memory）
+export async function increment(formData: FormData) {
   await fetchData();
-  count++;
-  console.log(count);
-  return count;
+  //   return 0;
 }
 
 const fetchData = async (): Promise<void> => {
