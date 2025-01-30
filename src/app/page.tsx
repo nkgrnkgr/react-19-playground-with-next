@@ -1,5 +1,4 @@
-import { Counter } from "@/components/counter";
-import { Optimistic } from "../components/optimistic";
+import { Optimistic, OptimisticForm } from "../components/optimistic";
 // import { From } from "@/components/form";
 
 export default function Home() {
@@ -8,6 +7,8 @@ export default function Home() {
       <h1>Home</h1>
       {/* <From /> */}
       <Optimistic />
+      <hr />
+      <OptimisticForm />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useActionState } from "react";
+import { startTransition, useActionState, useRef } from "react";
 
 // 0-10までのランダムな数値を返す関数
 const getRandomNumber = (): number => {
@@ -46,5 +46,45 @@ export function Optimistic() {
         Increment
       </button>
     </div>
+  );
+}
+
+export function OptimisticForm() {
+  const formRef = useRef(null);
+  const [{ messages }, runAction, isPending] = useActionState<
+    {
+        messages: string[];
+    },
+    { type: "SUBMIT", value: string },
+  >(async (prev, payload) => {
+    if (payload.type === "SUBMIT") {
+      await fetchData();
+      const newState = {
+        messages: [...prev.messages, payload.value],
+      }
+      return newState
+    }
+    return prev;
+  }, {
+    messages: [],
+  });
+
+  const formAction = async (formData: FormData) => {
+    const message = formData.get("message");
+    if (message) {
+      runAction({ type: "SUBMIT", value: message as string });
+    }
+  };
+
+  return (
+    <form action={formAction} ref={formRef}>
+      <input name="message" type="text" /> {isPending && "Sending..."}
+      <button type="submit">Submit</button>
+      <ul>
+        {messages.map((message, index) => (
+          <li key={`${message}`}>{message}</li>
+        ))}
+      </ul>
+    </form>
   );
 }
