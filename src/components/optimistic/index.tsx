@@ -50,7 +50,7 @@ export function Optimistic() {
 }
 
 export function OptimisticForm() {
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [{ messages }, runAction, isPending] = useActionState<
     {
         messages: string[];
@@ -70,6 +70,7 @@ export function OptimisticForm() {
   });
 
   const formAction = async (formData: FormData) => {
+    formRef.current?.reset();
     const message = formData.get("message");
     if (message) {
       runAction({ type: "SUBMIT", value: message as string });
