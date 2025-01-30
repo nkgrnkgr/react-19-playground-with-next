@@ -31,6 +31,7 @@ export function Optimistic() {
     }
     return prev;
   }, 0);
+  // useOptimistic を使ってみましょう
 
   const handleClick = () => {
     startTransition(() => {
