@@ -1,4 +1,5 @@
-import { Optimistic, OptimisticForm } from "../components/optimistic";
+import Link from "next/link";
+// import { Optimistic, OptimisticForm } from "../components/optimistic";
 // import { From } from "@/components/form";
 
 export default function Home() {
@@ -6,9 +7,10 @@ export default function Home() {
     <div>
       <h1>Home</h1>
       {/* <From /> */}
-      <Optimistic />
+      {/* <Optimistic />
       <hr />
-      <OptimisticForm />
+      <OptimisticForm /> */}
+      <Link href="/use-hooks">use hooks</Link>
     </div>
   );
 }
