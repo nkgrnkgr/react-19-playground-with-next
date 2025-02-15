@@ -1,16 +1,20 @@
 import Link from "next/link";
-// import { Optimistic, OptimisticForm } from "../components/optimistic";
-// import { From } from "@/components/form";
 
 export default function Home() {
   return (
     <div>
       <h1>Home</h1>
-      {/* <From /> */}
-      {/* <Optimistic />
-      <hr />
-      <OptimisticForm /> */}
-      <Link href="/use-hooks">use hooks</Link>
+      <ul>
+        <li>
+          <Link href="/use-hooks">use hooks</Link>
+        </li>
+        <li>
+          <Link href="/counter">counter</Link>
+        </li>
+        <li>
+          <Link href="/use-optimistic">use optimistic</Link>
+        </li>
+      </ul>
     </div>
   );
 }
